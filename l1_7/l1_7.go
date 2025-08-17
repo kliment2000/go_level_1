@@ -6,7 +6,7 @@ import (
 )
 
 type SafeMap struct {
-	mu sync.RWMutex
+	mu sync.Mutex
 	m  map[string]int
 }
 
@@ -21,8 +21,8 @@ func (s *SafeMap) Inc(key string) {
 }
 
 func (s *SafeMap) Get(key string) int {
-	s.mu.RLock()
-	defer s.mu.RUnlock()
+	s.mu.Lock()
+	defer s.mu.Unlock()
 	return s.m[key]
 }
 
