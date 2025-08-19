@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"strings"
 )
 
 var justString string
@@ -19,7 +20,7 @@ func someFuncLeak() {
 
 func someFuncFixed() {
 	v := createHugeString(100 << 20)
-	justString = string([]byte(v[:100]))
+	justString = strings.Clone(v[:100])
 	fmt.Println("Вызывается функция")
 }
 
