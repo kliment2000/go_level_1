@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 )
 
 func reverse(s string) string {
@@ -16,10 +14,8 @@ func reverse(s string) string {
 }
 
 func main() {
-	fmt.Print("Введите строку: ")
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	input := scanner.Text()
+	input := "Hello главрыба 👋"
+	fmt.Println("Исходная строка:", input)
 
 	fmt.Println("Перевёрнутая строка:", reverse(input))
 }
